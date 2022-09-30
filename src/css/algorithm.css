@@ -22,6 +22,20 @@
     margin-bottom: 1.5rem;
 }
 
+/* visualizer */
+.visualizer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.array-element {
+    border: 1px solid black;
+    background-color: rgb(212, 212, 212);
+    padding: 0.5rem;
+}
+
 @media (max-width: 1261px) {
     .bubble-sort {
         grid-template-columns: repeat(1, 1fr);

@@ -21,17 +21,3 @@
 .left header .header-button {
   margin-right: 10px;
 }
-
-/* displayArray */
-.displayArr {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-
-.array-element {
-  border: 1px solid black;
-  background-color: rgb(212, 212, 212);
-  padding: 0.5rem;
-}

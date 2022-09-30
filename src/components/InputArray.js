@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
@@ -15,6 +14,7 @@ function InputArray(props) {
         .split(",")
         .map((item) => {
           if (item) return parseInt(item, 10);
+          else return null;
         })
     );
     console.log(input);
@@ -31,7 +31,7 @@ function InputArray(props) {
   }, [arr]);
 
   useEffect(() => {
-    props.viewArr(!viewArray);
+    props.viewArr(viewArray);
     generateArr(input);
   }, [input]);
 
@@ -50,16 +50,6 @@ function InputArray(props) {
             value={input}
             onChange={handleInput}
           />
-          <Button
-            variant="primary"
-            type="submit"
-            className="view-algo header-button"
-            onClick={() => {
-              generateArr(input);
-            }}
-          >
-            Go
-          </Button>
         </InputGroup>
       </div>
     </div>

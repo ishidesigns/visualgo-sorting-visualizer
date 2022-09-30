@@ -95,7 +95,7 @@ function BubbleSort() {
 
         {/*display-Array */}
         {viewArray && (
-          <section className="displayArr">
+          <section className="visualizer">
             {arr.map((element, index) => {
               if (Number.isInteger(parseInt(element)))
                 return (
@@ -103,6 +103,7 @@ function BubbleSort() {
                     {parseInt(element)}
                   </div>
                 );
+              else return null;
             })}
           </section>
         )}
