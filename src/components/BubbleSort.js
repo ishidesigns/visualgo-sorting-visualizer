@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
-import "../css/displayAlgo.css";
+import "../css/algorithm.css";
 
 function BubbleSort() {
   const [viewInput, setViewInput] = useState(false);
@@ -22,6 +22,7 @@ function BubbleSort() {
           if (item) return parseInt(item, 10);
         })
     );
+    console.log(arr);
   };
 
   const handleDisplayAlgo = () => {
@@ -95,12 +96,13 @@ function BubbleSort() {
         {/* Input */}
         {viewInput && (
           <div className="input-array">
-            <InputGroup className="mb-3">
-              <InputGroup.Text id="basic-addon3">
+            <InputGroup className="mb-3 ip-arr">
+              <InputGroup.Text id="basic-addon3" className="ip-arr-text">
                 Enter comma-separated array elements
               </InputGroup.Text>
               <Form.Control
                 id="basic-url"
+                className="header-button"
                 aria-describedby="basic-addon3"
                 placeholder="Enter elements"
                 value={input}
@@ -112,9 +114,8 @@ function BubbleSort() {
               <Button
                 variant="primary"
                 type="submit"
-                className="view-algo"
+                className="view-algo header-button"
                 onClick={() => {
-                  console.log(arr);
                   setViewArray(true);
                   generateArr(input);
                 }}

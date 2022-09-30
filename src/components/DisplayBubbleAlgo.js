@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/displayAlgo.css";
+import "../css/algorithm.css";
 function DisplayBubbleAlgo() {
   return (
     <div className="display-algo">
