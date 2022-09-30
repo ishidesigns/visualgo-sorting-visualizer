@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
 import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
 import "../css/algorithm.css";
 import InputArray from "./InputArray";
@@ -12,18 +10,6 @@ function BubbleSort() {
   const [viewArray, setViewArray] = useState(false);
   const [viewAlgo, setViewAlgo] = useState(false);
   const [arr, setArr] = useState([]);
-
-  const generateArr = (input) => {
-    setArr(
-      input
-        .trim()
-        .split(",")
-        .map((item) => {
-          if (item) return parseInt(item, 10);
-        })
-    );
-    console.log(arr);
-  };
 
   const handleDisplayAlgo = () => {
     setViewAlgo(!viewAlgo);
@@ -71,14 +57,6 @@ function BubbleSort() {
       }
     }, 2000);
   };
-
-  // const array = (data) => {
-  //   setArr(data);
-  // };
-
-  // const viewArr = (data) => {
-  //   setViewArray(data);
-  // };
 
   const array = (data) => {
     setArr(data);

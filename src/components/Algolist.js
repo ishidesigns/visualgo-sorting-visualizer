@@ -1,7 +1,6 @@
 import React from "react";
-import BubbleSort from "./BubbleSort";
 import Card from "react-bootstrap/Card";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../css/homePage.css";
 
 function Algolist() {
