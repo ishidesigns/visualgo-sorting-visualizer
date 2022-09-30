@@ -5,10 +5,10 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
 import "../css/algorithm.css";
+import InputArray from "./InputArray";
 
 function BubbleSort() {
   const [viewInput, setViewInput] = useState(false);
-  const [input, setInput] = useState("");
   const [viewArray, setViewArray] = useState(false);
   const [viewAlgo, setViewAlgo] = useState(false);
   const [arr, setArr] = useState([]);
@@ -72,6 +72,21 @@ function BubbleSort() {
     }, 2000);
   };
 
+  // const array = (data) => {
+  //   setArr(data);
+  // };
+
+  // const viewArr = (data) => {
+  //   setViewArray(data);
+  // };
+
+  const array = (data) => {
+    setArr(data);
+  };
+
+  const viewArrBool = (data) => {
+    setViewArray(data);
+  };
   return (
     <div className="bubble-sort">
       <section className="left">
@@ -96,33 +111,7 @@ function BubbleSort() {
         {/* Input */}
         {viewInput && (
           <div className="input-array">
-            <InputGroup className="mb-3 ip-arr">
-              <InputGroup.Text id="basic-addon3" className="ip-arr-text">
-                Enter comma-separated array elements
-              </InputGroup.Text>
-              <Form.Control
-                id="basic-url"
-                className="header-button"
-                aria-describedby="basic-addon3"
-                placeholder="Enter elements"
-                value={input}
-                onChange={(e) => {
-                  setInput(e.target.value);
-                  setViewArray(false);
-                }}
-              />
-              <Button
-                variant="primary"
-                type="submit"
-                className="view-algo header-button"
-                onClick={() => {
-                  setViewArray(true);
-                  generateArr(input);
-                }}
-              >
-                Go
-              </Button>
-            </InputGroup>
+            <InputArray array={array} viewArr={viewArrBool} />
           </div>
         )}
 

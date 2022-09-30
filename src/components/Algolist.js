@@ -9,13 +9,13 @@ function Algolist() {
     <div className="main-container">
       <Link className="algo-links" to="/Bubble-Sort">
         <div className="cards">
-          <Card>
+          <Card className="card">
             <Card.Img
               className="card-img"
               variant="top"
               src={require("../Images/bubble-sort.gif")}
             />
-            <Card.Body>
+            <Card.Body className="card-body">
               <Card.Title className="card-title">Bubble Sort</Card.Title>
             </Card.Body>
           </Card>
@@ -24,13 +24,13 @@ function Algolist() {
 
       <Link className="algo-links" to="/Selection-Sort">
         <div className="cards">
-          <Card>
+          <Card className="card">
             <Card.Img
               className="card-img"
               variant="top"
               src={require("../Images/selection-sort.gif")}
             />
-            <Card.Body>
+            <Card.Body className="card-body">
               <Card.Title className="card-title">Selection Sort</Card.Title>
             </Card.Body>
           </Card>
@@ -39,13 +39,13 @@ function Algolist() {
 
       <Link className="algo-links" to="/Insertion-Sort">
         <div className="cards">
-          <Card>
+          <Card className="card">
             <Card.Img
               className="card-img"
               variant="top"
               src={require("../Images/insertion-sort.gif")}
             />
-            <Card.Body>
+            <Card.Body className="card-body">
               <Card.Title className="card-title">Insertion Sort</Card.Title>
             </Card.Body>
           </Card>
@@ -54,13 +54,13 @@ function Algolist() {
 
       <Link className="algo-links" to="/Merge-Sort">
         <div className="cards">
-          <Card>
+          <Card className="card">
             <Card.Img
               className="card-img"
               variant="top"
               src={require("../Images/merge-sort.gif")}
             />
-            <Card.Body>
+            <Card.Body className="card-body">
               <Card.Title className="card-title">Merge Sort</Card.Title>
             </Card.Body>
           </Card>
@@ -69,13 +69,13 @@ function Algolist() {
 
       <Link className="algo-links" to="/Quick-Sort">
         <div className="cards">
-          <Card>
+          <Card className="card">
             <Card.Img
               className="card-img"
               variant="top"
               src={require("../Images/quick-sort.gif")}
             />
-            <Card.Body>
+            <Card.Body className="card-body">
               <Card.Title className="card-title">Quick Sort</Card.Title>
             </Card.Body>
           </Card>
@@ -84,13 +84,13 @@ function Algolist() {
 
       <Link className="algo-links" to="/Heap-Sort">
         <div className="cards">
-          <Card>
+          <Card className="card">
             <Card.Img
               className="card-img"
               variant="top"
               src={require("../Images/heap-sort.gif")}
             />
-            <Card.Body>
+            <Card.Body className="card-body">
               <Card.Title className="card-title">Heap Sort</Card.Title>
             </Card.Body>
           </Card>
