@@ -15,7 +15,7 @@ function DisplayBubbleAlgo() {
         </div>
       </div>
       <div className="algo">
-        <h4>Follow the below steps to solve the problem:</h4>
+        <h5>Follow the below steps to solve the problem:</h5>
         <ul>
           <li>
             Run a nested for loop to traverse the input array using two

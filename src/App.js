@@ -11,10 +11,9 @@ import HeapSort from "./components/HeapSort";
 
 function App() {
   return (
-    <div className="">
+    <div className="home">
       <div className="header">
-        {" "}
-        <h1 id="animateText">Sorting Visualizer</h1>
+        <h1 id="animateText">VISUALGO</h1>
       </div>
 
       <BrowserRouter>

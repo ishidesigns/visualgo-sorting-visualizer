@@ -1,51 +1,52 @@
 .header {
-  height: 8%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    height: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #animateText {
-  margin: 0.5%;
-  font-family: sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1vw;
-  font-size: 3rem;
-  background: linear-gradient(90deg, #000, red, #000);
-  background-repeat: no-repeat;
-  background-size: 80%;
-  animation: animate 6s linear infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    margin: 0.5%;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1vw;
+    font-size: 5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #000, red, #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 6s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
 
 
 @media only screen and (max-width: 655px) {
-  #animateText {
-    font-size: 2rem;
-  }
+    #animateText {
+        font-size: 2rem;
+    }
 }
 
 @media only screen and (max-width: 421px) {
-  #animateText {
-    font-size: 1.5rem;
-  }
+    #animateText {
+        font-size: 1.5rem;
+    }
 }
 
 @media only screen and (max-width: 316px) {
-  #animateText {
-    font-size: 1rem;
-  }
+    #animateText {
+        font-size: 1rem;
+    }
 }
 
 @keyframes animate {
-  0% {
-    background-position: -500%;
-  }
+    0% {
+        background-position: -500%;
+    }
 
-  100% {
-    background-position: 500%;
-  }
+    100% {
+        background-position: 500%;
+    }
 }

@@ -66,62 +66,67 @@ function BubbleSort() {
     setViewArray(data);
   };
   return (
-    <div className="bubble-sort">
-      <section className="left">
-        <header className="header-btn">
-          <Button
-            variant="primary"
-            type="submit"
-            className="header-button"
-            onClick={() => setViewInput(true)}
-          >
-            Create Array
-          </Button>
-          <Button
-            variant="primary"
-            type="submit"
-            className="header-button"
-            onClick={() => bubbleSort()}
-          >
-            Sort Array
-          </Button>
-        </header>
-        {/* Input */}
-        {viewInput && (
-          <div className="input-array">
-            <InputArray array={array} viewArr={viewArrBool} />
+    <div className="main-div">
+      <div className="header-div">
+        <h3>Bubble Sort</h3>
+      </div>
+      <div className="bubble-sort">
+        <section className="left">
+          <header className="header-btn">
+            <Button
+              variant="primary"
+              type="submit"
+              className="header-button"
+              onClick={() => setViewInput(true)}
+            >
+              Create Array
+            </Button>
+            <Button
+              variant="primary"
+              type="submit"
+              className="header-button"
+              onClick={() => bubbleSort()}
+            >
+              Sort Array
+            </Button>
+          </header>
+          {/* Input */}
+          {viewInput && (
+            <div className="input-array">
+              <InputArray array={array} viewArr={viewArrBool} />
+            </div>
+          )}
+
+          {/*display-Array */}
+          {viewArray && (
+            <section className="visualizer">
+              {arr.map((element, index) => {
+                if (Number.isInteger(parseInt(element)))
+                  return (
+                    <div key={index} className="array-element">
+                      {parseInt(element)}
+                    </div>
+                  );
+                else return null;
+              })}
+            </section>
+          )}
+        </section>
+
+        <section className="right">
+          <div>
+            <Button
+              variant="primary"
+              type="submit"
+              id="view-algo"
+              onClick={() => handleDisplayAlgo()}
+            >
+              View Algorithm
+            </Button>
           </div>
-        )}
-
-        {/*display-Array */}
-        {viewArray && (
-          <section className="visualizer">
-            {arr.map((element, index) => {
-              if (Number.isInteger(parseInt(element)))
-                return (
-                  <div key={index} className="array-element">
-                    {parseInt(element)}
-                  </div>
-                );
-              else return null;
-            })}
-          </section>
-        )}
-      </section>
-
-      <section className="right">
-        <div>
-          <Button
-            variant="primary"
-            type="submit"
-            id="view-algo"
-            onClick={() => handleDisplayAlgo()}
-          >
-            View Algorithm
-          </Button>
-        </div>
-        <div className="">{viewAlgo && <DisplayBubbleAlgo />}</div>
-      </section>
+          <div className="">{viewAlgo && <DisplayBubbleAlgo />}</div>
+        </section>
+      </div>
     </div>
   );
 }

@@ -7,17 +7,3 @@
 }
 
 /* Bubblesort */
-.bubble-sort {
-  border: 2px solid black;
-  width: 80%;
-  margin-left: 10%;
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
-  padding: 1rem;
-}
-
-.left header .header-button {
-  margin-right: 10px;
-}

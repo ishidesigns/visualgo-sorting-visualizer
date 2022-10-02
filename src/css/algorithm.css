@@ -1,21 +1,36 @@
+.main-div {
+    border: 2px solid black;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+.main-div .header-div {
+    text-align: center;
+}
+
 .bubble-sort {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
     padding: 0.5rem;
 }
 
+.left header .header-button {
+    margin-right: 10px;
+}
+
 .right, .left {
-    padding: 1rem;
+    padding: 1.5rem;
 }
 
 .algo-desc {
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .display-algo, .ip-arr {
     width: 100%;
-}
-
-.algo-desc, .algo {
-    padding: 1rem;
 }
 
 .header-btn {
@@ -28,7 +43,6 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
-
 
 .array-element {
     border: 1px solid black;
@@ -51,7 +65,7 @@
         font-size: 0.75rem;
     }
 
-    .right h4 {
+    .right h5 {
         font-size: 1rem;
     }
 }
@@ -61,7 +75,6 @@
         width: 100%;
     }
 }
-
 
 @media (max-width:480px) {
     .right, .left {
