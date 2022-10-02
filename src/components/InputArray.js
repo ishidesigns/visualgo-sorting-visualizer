@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// import { createStore } from "redux";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
@@ -7,6 +8,10 @@ function InputArray(props) {
   const [viewArray, setViewArray] = useState(false);
   const [arr, setArr] = useState([]);
 
+  // const [newArr, setNewArr] = useState([]);
+  // const store = createStore(() => {
+  //   setNewArr(...arr);
+  // });
   const generateArr = (input) => {
     setArr(
       input
