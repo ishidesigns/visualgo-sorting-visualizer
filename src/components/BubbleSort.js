@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
 import "../css/algorithm.css";
@@ -24,77 +24,35 @@ function BubbleSort() {
     }
   };
 
-  const bs = () => {
-    const myState = useSelector((state) => state.updateProps);
-    const dispatch = useDispatch();
-
-    let values = myState.values.map((item) => item[0]);
-    let ids = myState.values.map((item) => item[1]);
-
-    const solve = () => {
-      for (let i = values.length, timer = 0; i > 0; timer += i - 1, i--) {
-        setTimeout(() => {
-          for (let j = 1; j < i; j++) {
-            setTimeout(() => {
-              document.getElementById(
-                ids[j]
-              ).childNodes[1].style.backgroundColor = "black";
-              document.getElementById(
-                ids[j - 1]
-              ).childNodes[1].style.backgroundColor = "black";
-
-              setTimeout(() => {
-                document.getElementById(
-                  ids[j]
-                ).childNodes[1].style.backgroundColor = myState.color;
-                document.getElementById(
-                  ids[j - 1]
-                ).childNodes[1].style.backgroundColor = myState.color;
-              }, myState.speed - 10);
-
-              if (values[j] < values[j - 1]) {
-                let temp = values[j];
-                values[j] = values[j - 1];
-                values[j - 1] = temp;
-
-                temp = ids[j];
-                ids[j] = ids[j - 1];
-                ids[j - 1] = temp;
-
-                document.getElementById(ids[j]).style.transform = `translateX(${
-                  j * 11
-                }px)`;
-
-                document.getElementById(
-                  ids[j - 1]
-                ).style.transform = `translateX(${(j - 1) * 11}px)`;
-              }
-            }, (j - 1) * myState.speed);
-          }
-        }, timer * myState.speed);
-      }
-
-      setTimeout(() => {
-        dispatch({
-          type: "PLAY_PAUSE",
-          _play: false,
-        });
-
-        dispatch({
-          type: "UPDATE_COLOR",
-          color: "rgb(0, 182, 0)",
-        });
-      }, (((myState.values.length - 1) * myState.values.length) / 2) * myState.speed + 50);
-    };
-
-    useEffect(() => {
-      if (myState.algorithm === "bubble") {
-        if (myState.play) solve();
-      }
-    }, [myState.play]);
-
-    return <></>;
+  const myState = useSelector((state) => state.updateProps);
+  const dispatch = useDispatch();
+  const handlePlayPause = (play) => {
+    if (!myState.play) {
+      document.getElementById("create-array-btn").disabled = true;
+      document.getElementById("create-array-btn").style.backgroundColor =
+        "grey";
+      document.getElementById("sort-btn").disabled = true;
+      document.getElementById("sort-btn").style.backgroundColor = "grey";
+    } else {
+      return;
+    }
+    dispatch({
+      type: "PLAY_PAUSE",
+      _play: play,
+    });
   };
+
+  useEffect(() => {
+    if (!myState.play) {
+      document.getElementById("sort-btn").disabled = false;
+      document.getElementById("sort-btn").style.backgroundColor =
+        "rgb(0, 149, 199)";
+      document.getElementById("create-array-btn").disabled = false;
+      document.getElementById("create-array-btn").style.backgroundColor =
+        "rgb(0, 149, 199)";
+    }
+  }, [myState.play]);
+
   const bubbleSort = () => {
     setTimeout(() => {
       let newArray = document.getElementsByClassName("array-element");
@@ -149,6 +107,7 @@ function BubbleSort() {
               variant="primary"
               type="submit"
               className="header-button"
+              id="create-array-btn"
               onClick={() => setViewInput(true)}
             >
               Create Array
@@ -156,6 +115,7 @@ function BubbleSort() {
             <Button
               variant="primary"
               type="submit"
+              id="sort-btn"
               className="header-button"
               onClick={() => bubbleSort()}
             >
