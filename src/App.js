@@ -7,7 +7,7 @@ import SelectionSort from "./components/SelectionSort";
 import InsertionSort from "./components/InsertionSort";
 import QuickSort from "./components/QuickSort";
 import MergeSort from "./components/MergeSort";
-import HeapSort from "./components/HeapSort";
+import CountSort from "./components/CountSort";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
           <Route path="/Insertion-Sort" element={<InsertionSort />} />
           <Route path="/Insertion-Sort" element={<QuickSort />} />
           <Route path="/Merge-Sort" element={<MergeSort />} />
-          <Route path="/Heap-Sort" element={<HeapSort />} />
+          <Route path="/Count-Sort" element={<CountSort />} />
         </Routes>
       </BrowserRouter>
     </div>

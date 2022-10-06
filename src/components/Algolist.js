@@ -6,6 +6,7 @@ import "../css/homePage.css";
 function Algolist() {
   return (
     <div className="main-container">
+
       <Link className="algo-links" to="/Bubble-Sort">
         <div className="cards">
           <Card className="card">
@@ -81,21 +82,22 @@ function Algolist() {
         </div>
       </Link>
 
-      <Link className="algo-links" to="/Heap-Sort">
-        <div className="cards">
-          <Card className="card">
-            <Card.Img
-              className="card-img"
-              variant="top"
-              src={require("../Images/heap-sort.gif")}
-            />
-            <Card.Body className="card-body">
-              <Card.Title className="card-title">Heap Sort</Card.Title>
-            </Card.Body>
-          </Card>
-        </div>
-      </Link>
+      {/* <Link className="algo-links" to="/Count-Sort">
+    //     <div className="cards">
+    //       <Card className="card">
+  //         <Card.Img  
+    //           className="card-img"
+    //           variant="top"
+    //           src={require("../Images/heap-sort.gif")}
+    //         />
+    //         <Card.Body className="card-body">
+    //           <Card.Title className="card-title">Count Sort</Card.Title>
+    //         </Card.Body>
+    //       </Card>
+    //     </div>
+    //   </Link>*/}
     </div>
+
   );
 }
 

@@ -49,6 +49,12 @@
     padding: 0.5rem;
 }
 
+#new-array-btn {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
 @media (max-width: 1261px) {
     .bubble-sort {
         grid-template-columns: repeat(1, 1fr);

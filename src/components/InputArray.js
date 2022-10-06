@@ -1,44 +1,42 @@
 import React, { useState, useEffect } from "react";
-// import { createStore } from "redux";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-
+import Button from "react-bootstrap/Button";
 function InputArray(props) {
   const [input, setInput] = useState("");
   const [viewArray, setViewArray] = useState(false);
   const [arr, setArr] = useState([]);
 
-  // const [newArr, setNewArr] = useState([]);
-  // const store = createStore(() => {
-  //   setNewArr(...arr);
-  // });
   const generateArr = (input) => {
     setArr(
       input
         .trim()
         .split(",")
         .map((item) => {
-          if (item) return parseInt(item, 10);
+          if (item) return parseInt(item,10);
           else return null;
         })
     );
-    console.log(input);
-    console.log(arr);
+       
   };
 
+
+    const handleViewArray = () => {
+      generateArr(input);
+      if(input===""){
+        setViewArray(false);
+      }else{
+        setViewArray(true);
+      }
+      setInput('');
+    };
   const handleInput = (e) => {
     setInput(e.target.value);
-    setViewArray(!viewArray);
   };
-
   useEffect(() => {
+    props.viewArr(viewArray)
     props.array(arr);
   }, [arr]);
-
-  useEffect(() => {
-    props.viewArr(viewArray);
-    generateArr(input);
-  }, [input]);
 
   return (
     <div className="input-array-container">
@@ -55,6 +53,7 @@ function InputArray(props) {
             value={input}
             onChange={handleInput}
           />
+          <Button type='submit' onClick={()=>handleViewArray()} disabled={props.disable ? 'disabled': undefined} >GO!!</Button>
         </InputGroup>
       </div>
     </div>

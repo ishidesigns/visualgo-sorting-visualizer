@@ -1,17 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { useState } from "react"
 import Button from "react-bootstrap/Button";
 import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
 import "../css/algorithm.css";
 import InputArray from "./InputArray";
-
+import  { bubbleSort } from './SortingFunction';
 function BubbleSort() {
   const [viewInput, setViewInput] = useState(false);
   const [viewArray, setViewArray] = useState(false);
   const [viewAlgo, setViewAlgo] = useState(false);
   const [arr, setArr] = useState([]);
-
+  const [newButton, setNewButton] = useState(false);
+  const [isdisabled, setDisabled] = useState(false);
   const handleDisplayAlgo = () => {
     setViewAlgo(!viewAlgo);
     let view_hide_algo = document.getElementById("view-algo");
@@ -24,70 +25,7 @@ function BubbleSort() {
     }
   };
 
-  const myState = useSelector((state) => state.updateProps);
-  const dispatch = useDispatch();
-  const handlePlayPause = (play) => {
-    if (!myState.play) {
-      document.getElementById("create-array-btn").disabled = true;
-      document.getElementById("create-array-btn").style.backgroundColor =
-        "grey";
-      document.getElementById("sort-btn").disabled = true;
-      document.getElementById("sort-btn").style.backgroundColor = "grey";
-    } else {
-      return;
-    }
-    dispatch({
-      type: "PLAY_PAUSE",
-      _play: play,
-    });
-  };
-
-  useEffect(() => {
-    if (!myState.play) {
-      document.getElementById("sort-btn").disabled = false;
-      document.getElementById("sort-btn").style.backgroundColor =
-        "rgb(0, 149, 199)";
-      document.getElementById("create-array-btn").disabled = false;
-      document.getElementById("create-array-btn").style.backgroundColor =
-        "rgb(0, 149, 199)";
-    }
-  }, [myState.play]);
-
-  const bubbleSort = () => {
-    setTimeout(() => {
-      let newArray = document.getElementsByClassName("array-element");
-      const n = newArray.length;
-      for (let i = 0; i < n - 1; i++) {
-        setTimeout(() => {
-          for (let j = 0; j < n - i - 1; j++) {
-            if (
-              parseInt(newArray[j].innerText) >
-              parseInt(newArray[j + 1].innerText)
-            ) {
-              newArray[j].style.backgroundColor = "pink";
-              newArray[j + 1].style.backgroundColor = "pink";
-
-              console.log(newArray[i].innerText, newArray[j].innerText);
-              let temp = parseInt(newArray[j].innerText);
-              newArray[j].innerText = parseInt(newArray[j + 1].innerText);
-              newArray[j + 1].innerText = temp;
-              let newArr = [];
-              for (let k = 0; k < newArray.length; k++)
-                newArr.push(newArray[k].innerText);
-
-              console.log(newArr);
-              setTimeout(() => {
-                setArr([...newArr]);
-                newArray[j].style.backgroundColor = "rgb(212, 212, 212)";
-                newArray[j + 1].style.backgroundColor = "rgb(212, 212, 212)";
-              }, j * 500);
-            }
-          }
-        }, i * 2000);
-      }
-    }, 2000);
-  };
-
+ 
   const array = (data) => {
     setArr(data);
   };
@@ -95,11 +33,19 @@ function BubbleSort() {
   const viewArrBool = (data) => {
     setViewArray(data);
   };
+  const createNewrray = (arr) =>{
+    setNewButton(true);
+  }
   return (
+    <React.Fragment>
+    <Link to="/" className="btn btn-primary back-home">
+      Back Home
+    </Link> 
     <div className="main-div">
       <div className="header-div">
         <h3>Bubble Sort</h3>
       </div>
+      
       <div className="bubble-sort">
         <section className="left">
           <header className="header-btn">
@@ -109,6 +55,7 @@ function BubbleSort() {
               className="header-button"
               id="create-array-btn"
               onClick={() => setViewInput(true)}
+              disabled = { isdisabled ? 'disabled': undefined }
             >
               Create Array
             </Button>
@@ -117,7 +64,14 @@ function BubbleSort() {
               type="submit"
               id="sort-btn"
               className="header-button"
-              onClick={() => bubbleSort()}
+              onClick={async() =>
+               { 
+                setDisabled(true)
+                await bubbleSort()
+                createNewrray()
+                setDisabled(false)
+              }}
+              disabled ={(viewArray && !isdisabled ) ?  undefined : 'disabled' }
             >
               Sort Array
             </Button>
@@ -125,10 +79,11 @@ function BubbleSort() {
           {/* Input */}
           {viewInput && (
             <div className="input-array">
-              <InputArray array={array} viewArr={viewArrBool} />
+              <InputArray array={array} viewArr={viewArrBool}  disable = {isdisabled} />
+           
             </div>
           )}
-
+          
           {/*display-Array */}
           {viewArray && (
             <section className="visualizer">
@@ -141,8 +96,21 @@ function BubbleSort() {
                   );
                 else return null;
               })}
-            </section>
-          )}
+            </section> 
+          ) 
+        }
+        <br />
+        {newButton &&  (<div id="new-array-btn">
+          <Button variant="primary" type="submit" onClick={()=>{
+            setArr([])
+            setNewButton(false);
+            setDisabled(false)
+            setViewArray(false)
+          }}
+          >
+            Create New Array
+          </Button>
+        </div>)}
         </section>
 
         <section className="right">
@@ -160,6 +128,7 @@ function BubbleSort() {
         </section>
       </div>
     </div>
+    </React.Fragment>
   );
 }
 
