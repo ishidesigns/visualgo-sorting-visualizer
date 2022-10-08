@@ -59,14 +59,10 @@
     }
 }
 
-@media (max-width:455px) {
+@media (max-width:475px) {
     .main-container {
         width: 90%;
         margin-left: 5%;
         grid-template-columns: repeat(1, 1fr);
-    }
-
-    .card-title {
-        font-size: small;
     }
 }
