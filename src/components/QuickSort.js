@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
+import DisplayQuickAlgo from "./DisplayQuickAlgo";
 import "../css/algorithm.css";
 import InputArray from "./InputArray";
 import { quickSort } from "./SortingFunction";
@@ -132,7 +132,7 @@ function QuickSort() {
                 View Algorithm
               </Button>
             </div>
-            <div className="">{viewAlgo && <DisplayBubbleAlgo />}</div>
+            <div className="">{viewAlgo && <DisplayQuickAlgo />}</div>
           </section>
         </div>
       </div>

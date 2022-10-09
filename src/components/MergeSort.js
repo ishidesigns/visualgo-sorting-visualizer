@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
 import "../css/algorithm.css";
 import InputArray from "./InputArray";
 import { mergeSort } from "./SortingFunction";
 import NavBar from "./NavBar";
+import DisplayMergeAlgo from "./DisplayMergeAlgo";
 function MergeSort() {
   const [viewInput, setViewInput] = useState(false);
   const [viewArray, setViewArray] = useState(false);
@@ -92,9 +92,6 @@ function MergeSort() {
             {viewArray && (
               <section className="visualizer">
                 {arr.map((element, index) => {
-                  {
-                    /* if (element !== null) { */
-                  }
                   if (Number.isInteger(parseInt(element)))
                     return (
                       <div key={index} className="array-element">
@@ -102,9 +99,6 @@ function MergeSort() {
                       </div>
                     );
                   else return null;
-                  {
-                    /* } */
-                  }
                 })}
               </section>
             )}
@@ -138,7 +132,7 @@ function MergeSort() {
                 View Algorithm
               </Button>
             </div>
-            <div className="">{viewAlgo && <DisplayBubbleAlgo />}</div>
+            <div className="">{viewAlgo && <DisplayMergeAlgo />}</div>
           </section>
         </div>
       </div>

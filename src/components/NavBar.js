@@ -23,35 +23,33 @@ function NavBar() {
   return (
     <div className="navbar">
       <div className="nav-menu">
-        {active1 && (
-          <div className={active1 ? "active1 link-list" : "link-list"}>
-            <li onClick={() => closeMenu()}>
-              <Link className="nav-links" to="/Bubble-Sort">
-                Bubble
-              </Link>
-            </li>
-            <li onClick={() => closeMenu()}>
-              <Link className="nav-links" to="/Selection-Sort">
-                Selection
-              </Link>
-            </li>
-            <li onClick={() => closeMenu()}>
-              <Link className="nav-links" to="/Insertion-Sort">
-                Insertion
-              </Link>
-            </li>
-            <li onClick={() => closeMenu()}>
-              <Link className="nav-links" to="/Merge-Sort">
-                Merge
-              </Link>
-            </li>
-            <li onClick={() => closeMenu()}>
-              <Link className="nav-links" to="/Quick-Sort">
-                Quick
-              </Link>
-            </li>
-          </div>
-        )}
+        <div className={active1 ? "active1 link-list" : "link-list"}>
+          <li onClick={() => closeMenu()}>
+            <Link className="nav-links" to="/Bubble-Sort">
+              Bubble
+            </Link>
+          </li>
+          <li onClick={() => closeMenu()}>
+            <Link className="nav-links" to="/Selection-Sort">
+              Selection
+            </Link>
+          </li>
+          <li onClick={() => closeMenu()}>
+            <Link className="nav-links" to="/Insertion-Sort">
+              Insertion
+            </Link>
+          </li>
+          <li onClick={() => closeMenu()}>
+            <Link className="nav-links" to="/Merge-Sort">
+              Merge
+            </Link>
+          </li>
+          <li onClick={() => closeMenu()}>
+            <Link className="nav-links" to="/Quick-Sort">
+              Quick
+            </Link>
+          </li>
+        </div>
       </div>
 
       <div className="icons">

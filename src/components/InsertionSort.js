@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import DisplayBubbleAlgo from "./DisplayBubbleAlgo";
 import "../css/algorithm.css";
 import InputArray from "./InputArray";
 import { insertionSort } from "./SortingFunction";
 import NavBar from "./NavBar";
+import DisplayInsertionAlgo from "./DisplayInsertionAlgo";
 function InsertionSort() {
   const [viewInput, setViewInput] = useState(false);
   const [viewArray, setViewArray] = useState(false);
@@ -128,7 +128,7 @@ function InsertionSort() {
                 View Algorithm
               </Button>
             </div>
-            <div className="">{viewAlgo && <DisplayBubbleAlgo />}</div>
+            <div className="">{viewAlgo && <DisplayInsertionAlgo />}</div>
           </section>
         </div>
       </div>
