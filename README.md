@@ -71,5 +71,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Project Demo
 
-Project URL : https://sorting-visualgo-ishidesigns.netlify.app/
+Project URL : https://visualgo-sorting-visualizer.netlify.app/
 
